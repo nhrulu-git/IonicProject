@@ -1,7 +1,4 @@
 import { Routes } from '@angular/router';
-import { BuilderPage } from './builder/builder.page';
-import { SavedBuildsPage } from './saved-builds/saved-builds.page';
-import { HomePage } from './home/home.page';
 
 export const routes: Routes = [
   {
