@@ -1,3 +1,31 @@
 <ion-app>
+
+
+  <ion-header class="ion-no-border">
+    <ion-toolbar color="dark">
+
+      <ion-buttons slot="start">
+        <ion-button routerLink="/home" routerLinkActive="active-tab" class="nav-btn">
+          <ion-icon slot="start" name="home-outline"></ion-icon>
+          HOME
+        </ion-button>
+
+        <ion-button routerLink="/builder" routerLinkActive="active-tab" class="nav-btn">
+          <ion-icon slot="start" name="construct-outline"></ion-icon>
+          BUILDER
+        </ion-button>
+      </ion-buttons>
+
+      <ion-buttons slot="end">
+        <ion-button routerLink="/saved-builds" routerLinkActive="active-tab" class="nav-btn">
+          <ion-icon slot="start" name="save-outline"></ion-icon>
+          SAVED
+        </ion-button>
+      </ion-buttons>
+
+    </ion-toolbar>
+  </ion-header>
+
   <ion-router-outlet></ion-router-outlet>
+
 </ion-app>

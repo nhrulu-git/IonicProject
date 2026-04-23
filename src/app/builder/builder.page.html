@@ -1,71 +1,86 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<ion-header>
+  <ion-toolbar color="primary">
     <ion-title>PC Builder</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
 
-  <ion-item>
-    <ion-label>CPU</ion-label>
-    <ion-select [(ngModel)]="selectedCpu" (ionChange)="onSelectionChange()">
-      <ion-select-option *ngFor="let cpu of cpus" [value]="cpu">
-        {{ cpu.name }}
-      </ion-select-option>
-    </ion-select>
-  </ion-item>
-
-  <ion-item>
-    <ion-label>Motherboard</ion-label>
-    <ion-select [(ngModel)]="selectedMotherboard" (ionChange)="onSelectionChange()">
-      <ion-select-option *ngFor="let mb of motherboards" [value]="mb">
-        {{ mb.name }}
-      </ion-select-option>
-    </ion-select>
-  </ion-item>
-
-  <ion-item>
-    <ion-label>RAM</ion-label>
-    <ion-select [(ngModel)]="selectedRam" (ionChange)="onSelectionChange()">
-      <ion-select-option *ngFor="let r of ram" [value]="r">
-        {{ r.name }}
-      </ion-select-option>
-    </ion-select>
-  </ion-item>
-
-  <ion-list *ngIf="errors.length > 0">
-    <ion-item *ngFor="let error of errors" color="danger">
-      {{ error }}
-    </ion-item>
-  </ion-list>
-
-  <ion-card *ngIf="errors.length === 0 && selectedCpu && selectedMotherboard && selectedRam">
+  <!-- COMPONENT SELECTION -->
+  <ion-card>
     <ion-card-header>
-      <ion-card-title>Build is Compatible</ion-card-title>
+      <ion-card-title>Select Components</ion-card-title>
     </ion-card-header>
+
+    <ion-card-content>
+
+      <ion-item>
+        <ion-label>CPU</ion-label>
+        <ion-select [(ngModel)]="selectedCpu" (ionChange)="onSelectionChange()">
+          <ion-select-option *ngFor="let cpu of cpus" [value]="cpu">
+            {{ cpu.name }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Motherboard</ion-label>
+        <ion-select [(ngModel)]="selectedMotherboard" (ionChange)="onSelectionChange()">
+          <ion-select-option *ngFor="let m of motherboards" [value]="m">
+            {{ m.name }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>RAM</ion-label>
+        <ion-select [(ngModel)]="selectedRam" (ionChange)="onSelectionChange()">
+          <ion-select-option *ngFor="let r of ram" [value]="r">
+            {{ r.name }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+    </ion-card-content>
   </ion-card>
 
-<ion-card *ngIf="selectedCpu && selectedMotherboard && selectedRam">
-  <ion-card-header>
-    <ion-card-title>Your Build</ion-card-title>
-  </ion-card-header>
+  <!-- COMPATIBILITY -->
+  <ion-card *ngIf="errors.length > 0">
+    <ion-card-header color="danger">
+      <ion-card-title>
+        <ion-icon name="warning-outline"></ion-icon>
+        Compatibility Issues
+      </ion-card-title>
+    </ion-card-header>
 
-  <ion-card-content>
-    <p><strong>CPU:</strong> {{ selectedCpu.name }}</p>
-    <p><strong>Motherboard:</strong> {{ selectedMotherboard.name}}</p>
-    <p><strong>RAM:</strong> {{ selectedRam.name}}</p>
-  </ion-card-content>
-</ion-card>
+    <ion-card-content>
+      <ul>
+        <li *ngFor="let error of errors">{{ error }}</li>
+      </ul>
+    </ion-card-content>
+  </ion-card>
 
-<ion-card *ngIf="selectedCpu && selectedMotherboard && selectedRam">
-  <ion-card-content>
-    <strong>Compatibility Score:</strong> {{score}}%
-  </ion-card-content>
-</ion-card>
+  <!-- SCORE -->
+  <ion-card *ngIf="selectedCpu && selectedMotherboard && selectedRam">
+    <ion-card-header>
+      <ion-card-title>
+        <ion-icon name="stats-chart-outline"></ion-icon>
+        Compatibility Score
+      </ion-card-title>
+    </ion-card-header>
 
-<ion-button expand="block" (click)="saveBuild()" 
-  [disabled]="!selectedCpu || !selectedMotherboard || !selectedRam">
-  Save Build
-</ion-button>
+    <ion-card-content>
+      <h2>{{ score }}%</h2>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- SAVE BUTTON -->
+  <ion-button expand="block" color="success"
+    (click)="saveBuild()"
+    [disabled]="!selectedCpu || !selectedMotherboard || !selectedRam">
+
+    <ion-icon name="save-outline" slot="start"></ion-icon>
+    Save Build
+  </ion-button>
 
 </ion-content>

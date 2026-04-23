@@ -1,12 +1,41 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
       PC Builder Home Page
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="ion=padding">
-  <ion-button routerLink="/builder">Go to Builder</ion-button>
-  <ion-button routerLink="/saved-builds">Saved Builds</ion-button>
+<ion-content class="ion-padding">
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Build Your PC</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>Create a custom PC and check compatibility.</p>
+
+      <ion-button expand="block" [routerLink]="['/builder']">
+        <ion-icon name="construct-outline" slot="start"></ion-icon>
+        Build a PC
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Saved Builds</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>View and manage your saved PC builds.</p>
+
+      <ion-button expand="block" color="secondary" [routerLink]="['/saved-builds']">
+        <ion-icon name="save-outline" slot="start"></ion-icon>
+        View Saved Builds
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>

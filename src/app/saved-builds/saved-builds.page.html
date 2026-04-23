@@ -1,30 +1,37 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Your saved builds</ion-title>
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Saved Builds</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="ion-padding">
+<ion-content class="ion-padding">
+
   <ion-card *ngFor="let build of builds; let i = index">
-    <ion-card-header collapse="condense">
-      <ion-toolbar>
-        <ion-card-title size="large">Saved Build</ion-card-title>
-      </ion-toolbar>
+
+    <ion-card-header>
+      <ion-card-title>
+        <ion-icon name="desktop-outline"></ion-icon>
+        PC Build
+      </ion-card-title>
     </ion-card-header>
 
     <ion-card-content>
+
       <p><strong>CPU:</strong> {{ build.cpu.name }}</p>
       <p><strong>Motherboard:</strong> {{ build.motherboard.name }}</p>
       <p><strong>RAM:</strong> {{ build.ram.name }}</p>
-      <p><strong>Score:</strong> {{ build.score }}%</p>
 
-    <ion-button color="danger" (click)="deleteBuild(i)">
-      Delete Build
-    </ion-button>
+      <h3>Score: {{ build.score }}%</h3>
 
-    <ion-button expand="block" (click)="loadBuild(build)">
-      Load Build
-    </ion-button>
+      <ion-button expand="block" (click)="loadBuild(build)">
+        <ion-icon name="refresh-outline" slot="start"></ion-icon>
+        Load Build
+      </ion-button>
+
+      <ion-button expand="block" color="danger" (click)="deleteBuild(i)">
+        <ion-icon name="trash-outline" slot="start"></ion-icon>
+        Delete
+      </ion-button>
 
     </ion-card-content>
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonButton, IonToolbar, IonCard, IonCardHeader, IonCardTitle, IonCardContent} from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonButton, IonIcon, IonToolbar, IonCard, IonCardHeader, IonCardTitle, IonCardContent} from '@ionic/angular/standalone';
 import { Storage } from '@ionic/storage-angular';
 import { Router } from '@angular/router';
 
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   templateUrl: './saved-builds.page.html',
   styleUrls: ['./saved-builds.page.scss'],
   standalone: true,
-  imports: [ IonContent, IonHeader, IonTitle, IonButton, IonToolbar, IonCard, IonCardHeader, IonCardTitle, IonCardContent, CommonModule, FormsModule]
+  imports: [ IonContent, IonHeader, IonTitle, IonButton, IonIcon, IonToolbar, IonCard, IonCardHeader, IonCardTitle, IonCardContent, CommonModule, FormsModule]
 })
 export class SavedBuildsPage implements OnInit {
   builds: any[] = [];

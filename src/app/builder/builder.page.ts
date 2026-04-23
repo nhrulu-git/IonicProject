@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonLabel, IonList, IonContent, IonButton, IonItem, IonCardContent, IonCard, IonCardHeader, IonCardTitle, IonSelect, IonSelectOption} from '@ionic/angular/standalone';
+import { IonHeader, IonToolbar, IonTitle, IonLabel, IonIcon, IonContent, IonButton, IonItem, IonCardContent, IonCard, IonCardHeader, IonCardTitle, IonSelect, IonSelectOption} from '@ionic/angular/standalone';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Storage } from '@ionic/storage-angular';
@@ -8,7 +8,7 @@ import { ComponentService, Cpu, Motherboard, Ram } from '../services/component';
 @Component({
   selector: 'app-builder',
   standalone: true,
-  imports: [ IonHeader, IonToolbar, IonTitle, IonLabel, IonList, IonContent, IonButton, FormsModule, CommonModule, IonItem, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonSelect, IonSelectOption],
+  imports: [ IonHeader, IonToolbar, IonTitle, IonLabel, IonIcon, IonContent, IonButton, FormsModule, CommonModule, IonItem, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonSelect, IonSelectOption],
   templateUrl: './builder.page.html'
 })
 export class BuilderPage implements OnInit {
